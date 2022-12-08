@@ -55,6 +55,7 @@ while(True):
         rightEyeAspectRatio = eye_aspect_ratio(rightEye)
 
         eyeAspectRatio = (leftEyeAspectRatio + rightEyeAspectRatio) / 2
+        print(eyeAspectRatio)
 
         leftEyeHull = cv2.convexHull(leftEye)
         rightEyeHull = cv2.convexHull(rightEye)
@@ -63,6 +64,7 @@ while(True):
 
         if(eyeAspectRatio < EYE_ASPECT_RATIO_THRESHOLD):
             COUNTER += 1
+            print(COUNTER)
             if COUNTER >= EYE_ASPECT_RATIO_CONSEC_FRAMES:
                 cv2.putText(frame, "Anda sedang mengantuk", (100,150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
                 playsound('beep-warning.wav')
